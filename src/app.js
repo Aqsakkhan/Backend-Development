@@ -69,7 +69,7 @@ app.delete('/notes/:id', async (req, res) => {
         })
         
     } catch (error) {
-        onsole.log("Error deleting note", error)
+        console.log("Error deleting note", error)
         res.status(500).json ({
             success : false,
             message : "Failed to delete note",
@@ -99,7 +99,7 @@ app.put('/notes/:id', async (req, res) => {
         })
 
     } catch (error) {
-        onsole.log("Error updating note", error)
+        console.log("Error updating note", error)
         res.status(500).json ({
             success : false,
             message : "Failed to update note",
