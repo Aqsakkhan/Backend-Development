@@ -26,10 +26,11 @@ async function registerUser(req, res) {
             { expiresIn: '24h' }
         )
 
+        res.cookie("token", token)
+
         return res.status(201).json({
             message : "User registred successfully",
-            user : {id : newUser._id, Email : newUser.Email},
-            token : token
+            user : {id : newUser._id, Email : newUser.Email}
         })
             
     } catch(error) {
