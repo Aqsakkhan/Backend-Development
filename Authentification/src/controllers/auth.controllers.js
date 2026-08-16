@@ -12,7 +12,17 @@ async function registerUser(req, res) {
                 message : "Data not found"
             })
         }   
-    
+
+        const userExistAlready = await userModel.findOne({
+            Email : data.Email
+        })
+
+        if (userExistAlready) {
+            return res.status(409).json({
+                message : "User exist already"
+            })
+        }
+
         const newUser = await userModel.create({
             FirstName : data.FirstName,
             LastName : data.LastName,
